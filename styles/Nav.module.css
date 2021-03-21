@@ -1,11 +1,12 @@
 .nav {
-  height: 50px;
+  height: 60px;
   padding: 10px;
-  background: #000;
+  background: #ffffff;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  box-shadow: 0px 2px 5px #00000029;
 }
 
 .nav ul {
@@ -15,6 +16,21 @@
   list-style: none;
 }
 
-.nav ul li a {
+.nav ul li {
   margin: 5px 15px;
+}
+
+.navSpan {
+  font: normal normal 500 16px/21px "Noto Sans KR", sans-serif;
+  text-align: center;
+  color: #707070;
+}
+.fapplyLogo {
+  display: block;
+}
+.navInner {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  height: 60px;
 }

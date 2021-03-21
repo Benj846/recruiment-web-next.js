@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 const Meta = ({ title, keywords, description }) => {
   return (
@@ -9,14 +9,17 @@ const Meta = ({ title, keywords, description }) => {
       <meta charSet='utf-8' />
       <link rel='icon' href='/favicon.ico' />
       <title>{title}</title>
+      <link
+        href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'
+        rel='stylesheet'></link>
     </Head>
-  )
-}
+  );
+};
 
 Meta.defaultProps = {
-  title: 'WebDev Newz',
-  keywords: 'web development, programming',
-  description: 'Get the latest news in web dev',
-}
+  title: "WebDev Newz",
+  keywords: "web development, programming",
+  description: "Get the latest news in web dev",
+};
 
-export default Meta
+export default Meta;
