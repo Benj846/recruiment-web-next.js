@@ -14,7 +14,7 @@ const Nav = () => {
           </li>
           <li>
             <Link href='/'>
-              <a className={navStyles.navSpan}>채용공고</a>
+              <a className={navStyles.navSpan}>채용공고d</a>
             </Link>
           </li>
           <li>
