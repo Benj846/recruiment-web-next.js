@@ -1,7 +1,6 @@
-import Meta from "../components/Meta";
+import Meta from "../../components/Meta";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 const works = ({ works }) => {
-  console.log(works);
   return (
     <div>
       <Meta title='works' />
@@ -29,7 +28,6 @@ export const getStaticProps = async () => {
       }
     `,
   });
-  console.log(data);
   return {
     props: {
       works: data.getDefaultWork,

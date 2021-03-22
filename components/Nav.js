@@ -9,12 +9,17 @@ const Nav = () => {
         <ul>
           <li>
             <Link href='/'>
-              <Image src='/fapply_logo.svg' width='100' height='20' className={navStyles.fapplyLogo} />
+              <Image
+                src='/fapply_logo.svg'
+                width='100'
+                height='20'
+                className={navStyles.fapplyLogo}
+              />
             </Link>
           </li>
           <li>
             <Link href='/'>
-              <a className={navStyles.navSpan}>채용공고d</a>
+              <a className={navStyles.navSpan}>채용공고</a>
             </Link>
           </li>
           <li>
@@ -33,6 +38,7 @@ const Nav = () => {
             </Link>
           </li>
         </ul>
+        {/* Utility links */}
         <ul>
           <li>
             <Link href='/works'>

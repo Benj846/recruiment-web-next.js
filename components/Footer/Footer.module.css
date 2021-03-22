@@ -1,0 +1,29 @@
+.footerContainer {
+  margin-top: 48px;
+  border-top: 1px solid #cccccc;
+  height: 310px;
+  background: #f9f9fb;
+}
+.footerInner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.footerMenu {
+  display: flex;
+  padding: 18px 0;
+}
+.footerMenu .fmList {
+  margin-right: 28px;
+  padding: 2px 28px 2px 0;
+  border-right: 1px solid #ccc;
+  font: normal normal 500 13px/14px Noto Sans KR;
+  color: #707070;
+}
+.footerMenu .fmList:last-child {
+  border: none;
+}
+.footerCopyWrap {
+  border-top: 1px solid #ccc;
+  padding: 44px;
+  color: #999;
+}
