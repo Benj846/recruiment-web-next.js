@@ -4,11 +4,11 @@ const works = ({ works }) => {
   return (
     <div>
       <Meta title='works' />
-      <p>
+      <div>
         {works.map((a) => (
           <div key={a.ID}>{a.VAL}</div>
         ))}
-      </p>
+      </div>
     </div>
   );
 };

@@ -9,12 +9,14 @@ const Nav = () => {
         <ul>
           <li>
             <Link href='/'>
-              <Image
-                src='/fapply_logo.svg'
-                width='100'
-                height='20'
-                className={navStyles.fapplyLogo}
-              />
+              <a>
+                <Image
+                  src='/fapplylogo.svg'
+                  width={100}
+                  height={20}
+                  className={navStyles.fapplylogo}
+                />
+              </a>
             </Link>
           </li>
           <li>
@@ -23,7 +25,7 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link href='/about'>
+            <Link href='/career'>
               <a className={navStyles.navSpan}>커리어</a>
             </Link>
           </li>
@@ -33,7 +35,7 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link href='/works'>
+            <Link href='/resume'>
               <a className={navStyles.navSpan}>이력서</a>
             </Link>
           </li>
@@ -41,11 +43,11 @@ const Nav = () => {
         {/* Utility links */}
         <ul>
           <li>
-            <Link href='/works'>
+            <Link href='/signin'>
               <a className={navStyles.navSpan}>login</a>
             </Link>
           </li>
-          <Link href='/works'>
+          <Link href='/mypage'>
             <a className={navStyles.navSpan}>mypage</a>
           </Link>
         </ul>

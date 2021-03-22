@@ -27,3 +27,46 @@
   padding: 44px;
   color: #999;
 }
+.footerCopyWrap .footerInner {
+  display: flex;
+  align-items: flex-start;
+}
+.footerCopyWrap .footerInner .footerLogo {
+  width: 100px;
+  margin: 6px 32px 0 0;
+}
+.footerCopyWrap .footerTxtWrap .corpName {
+  font: normal normal 700 15px/23px Noto Sans KR;
+}
+
+.footerCopyWrap .footerTxtWrap .txt {
+  font: normal normal 500 13px/23px Noto Sans KR;
+}
+.footerCopyWrap .footerTxtWrap .copyright {
+  font: normal normal 700 13px/23px Noto Sans KR;
+  color: #ccc;
+  display: block;
+  margin-top: 24px;
+}
+
+.footerCopyWrap .directWrap {
+  margin-left: auto;
+  color: #707070;
+}
+.footerCopyWrap .directWrap .directMenu {
+  margin-top: 6px;
+  width: 250px;
+  border-top: 1px solid #ccc;
+}
+
+.footerCopyWrap .directMenu .diList {
+  display: flex;
+  align-items: center;
+  padding: 12px 0 12px 32px;
+  font: normal normal 500 13px/19px Noto Sans KR;
+  border-bottom: 1px solid #ccc;
+}
+.footerCopyWrap .directMenu .diList .diIco {
+  display: block;
+  margin-right: 40px;
+}
