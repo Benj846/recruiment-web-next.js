@@ -1,5 +1,7 @@
 import { ApolloServer, gql } from "apollo-server-micro";
+import { PrismaClient } from "@prisma/client";
 const mysql = require("mysql2/promise");
+const prisma = new PrismaClient();
 
 require("dotenv").config();
 const pool = mysql.createPool({
@@ -26,7 +28,9 @@ const typeDefs = gql`
 `;
 
 const getDefaultWork = async ({ LV }) => {
-  const [rows] = await pool.query("select * from TB_CMN_WORK");
+  //const [rows] = await pool.query("select * from TB_CMN_WORK");
+  //const [rows] = await prisma.work.findMany();
+  const rows = await prisma.work.findMany();
   const filteredWorks = rows.filter((args) => args.LV === LV);
   return filteredWorks;
 };
