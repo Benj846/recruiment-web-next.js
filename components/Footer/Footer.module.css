@@ -1,22 +1,13 @@
 .footerContainer {
-  margin-top: 48px;
   border-top: 1px solid #cccccc;
-  height: 310px;
   background: #f9f9fb;
 }
-.footerInner {
-  max-width: 1060px;
-  margin: 0 auto;
-}
 .footerMenu {
-  display: flex;
-  padding: 18px 0;
 }
 .footerMenu .fmList {
-  margin-right: 28px;
-  padding: 2px 28px 2px 0;
   border-right: 1px solid #ccc;
-  font: normal normal 500 13px/14px Noto Sans KR;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: #707070;
 }
 .footerMenu .fmList:last-child {
@@ -24,7 +15,6 @@
 }
 .footerCopyWrap {
   border-top: 1px solid #ccc;
-  padding: 44px;
   color: #999;
 }
 .footerCopyWrap .footerInner {
@@ -36,37 +26,29 @@
   margin: 6px 32px 0 0;
 }
 .footerCopyWrap .footerTxtWrap .corpName {
-  font: normal normal 700 15px/23px Noto Sans KR;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .footerCopyWrap .footerTxtWrap .txt {
-  font: normal normal 500 13px/23px Noto Sans KR;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 .footerCopyWrap .footerTxtWrap .copyright {
-  font: normal normal 700 13px/23px Noto Sans KR;
-  color: #ccc;
+  font-size: 0.75rem;
+  font-weight: 700;
   display: block;
-  margin-top: 24px;
+  color: #ccc;
 }
-
 .footerCopyWrap .directWrap {
   margin-left: auto;
   color: #707070;
 }
 .footerCopyWrap .directWrap .directMenu {
-  margin-top: 6px;
-  width: 250px;
   border-top: 1px solid #ccc;
 }
-
 .footerCopyWrap .directMenu .diList {
-  display: flex;
-  align-items: center;
-  padding: 12px 0 12px 32px;
-  font: normal normal 500 13px/19px Noto Sans KR;
+  font-size: 0.875rem;
+  font-weight: 500;
   border-bottom: 1px solid #ccc;
-}
-.footerCopyWrap .directMenu .diList .diIco {
-  display: block;
-  margin-right: 40px;
 }

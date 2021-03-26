@@ -1,37 +1,18 @@
 .nav {
-  height: 60px;
-  padding: 10px;
   background: #ffffff;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0px 2px 5px #00000029;
 }
 
-.nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
+.navInner {
+  height: 60px;
 }
 
-.nav ul li {
-  margin: 5px 15px;
+.nav li {
+  font-size: 0;
 }
 
 .navSpan {
-  font: normal normal 500 16px/21px "Noto Sans KR", sans-serif;
-  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
   color: #707070;
-}
-
-.navInner {
-  display: flex;
-  justify-content: space-between;
-  width: 1060px;
-  height: 60px;
-}
-.fapplylogo {
-  margin-right: 85px;
 }
