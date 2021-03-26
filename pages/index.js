@@ -1,6 +1,6 @@
 import { server } from "../config";
 export default function Home() {
-  return <h1>Home</h1>;
+  return <h1>Home edited by ben</h1>;
 }
 
 // export const getStaticProps = async () => {
