@@ -1,6 +1,11 @@
 import { server } from "../config";
+import HomePage from "../components/Home/Home";
 export default function Home() {
-  return <h1>Home edited by ben</h1>;
+  return (
+    <div className={`container`}>
+      <HomePage />
+    </div>
+  );
 }
 
 // export const getStaticProps = async () => {

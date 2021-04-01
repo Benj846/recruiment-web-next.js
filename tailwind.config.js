@@ -1,20 +1,23 @@
 module.exports = {
-  purge: ['./src/**/*.js', './src/**/*.html'],
+  purge: ["./src/**/*.js", "./src/**/*.html"],
   darkMode: false,
   theme: {
     screens: {
-      lg: '1080px',
+      lg: "1080px",
     },
     container: {
       center: true,
-      lg: '1060',
+      lg: "1060",
       padding: {
-        DEFAULT: '16px',
-        lg: '10px',
+        DEFAULT: "16px",
+        lg: "10px",
       },
     },
-  },
-  variants: {
-    extend: {},
-  },
+    extend: {
+      spacing: {
+        '123':'66rem',
+        '42':'42rem'
+      }
+    }
+  }
 };

@@ -1,0 +1,35 @@
+.icon {
+  color: #dadae2;
+  font-size: 3.5rem;
+}
+.cover {
+  background-color: #f9f9fb;
+}
+.button {
+  background-color: #dadae2;
+}
+.logo {
+  border-radius: 5rem;
+  box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  font-size: 5rem;
+  color: #dadae2;
+}
+.text {
+  font-size: 2rem;
+}
+.createButton {
+  font-size: 1rem;
+  background-image: linear-gradient(112deg, var(--primary) 16%, var(--sub) 99%);
+}
+.list {
+  background-color: #f9f9fb;
+}
+.notice {
+  background-color: #f9f9fb;
+  color: #999999;
+}
+.gear {
+  font-size: 2rem;
+  color: #cccccc;
+}
