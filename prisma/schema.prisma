@@ -11,10 +11,11 @@ generator client {
 }
 
 model Work {
-  ID         Int         @id @default(autoincrement())
-  LV         Int    
-  VAL        String
-  UPPER_ID   Int
-  USE_YN     Boolean     @default(false)
+  ID       Int     @id @default(autoincrement())
+  LV       Int
+  VAL      String
+  UPPER_ID Int
+  USE_YN   Boolean @default(false)
+
   @@map("TB_CMN_WORK")
 }

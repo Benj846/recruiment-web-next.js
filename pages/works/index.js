@@ -1,7 +1,18 @@
 import Meta from "../../components/Meta";
 import { ApolloClient, InMemoryCache, gql, useMutation } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
+
 const works = ({ works }) => {
+  let input;
+  const ADD_TODO = gql`
+    mutation AddTodo($type: String!) {
+      addTodo(type: $type) {
+        id
+        type
+      }
+    }
+  `;
+  const [addTodo, { data }] = useMutation(ADD_TODO);
   return (
     <div>
       <Meta title='works' />
@@ -10,17 +21,29 @@ const works = ({ works }) => {
           <div key={a.ID}>{a.VAL}</div>
         ))}
       </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          addTodo({ variables: { type: input.value } });
+          input.value = "";
+        }}>
+        <input
+          ref={(node) => {
+            input = node;
+          }}
+        />
+        <button type='submit'>Add todo</button>
+      </form>
     </div>
   );
 };
 
+export const client = new ApolloClient({
+  // uri: "http://localhost:3000/api/graphql",
+  link: createUploadLink({ uri: "http://localhost:3000/api/graphql" }),
+  cache: new InMemoryCache(),
+});
 export const getStaticProps = async () => {
-  const link = createUploadLink({ uri: "http://localhost:3000/api/graphql" });
-  const client = new ApolloClient({
-    // uri: "http://localhost:3000/api/graphql",
-    link,
-    cache: new InMemoryCache(),
-  });
   const { data } = await client.query({
     query: gql`
       {
@@ -32,14 +55,6 @@ export const getStaticProps = async () => {
     `,
   });
 
-  const TEST = gql`
-    mutation Addtest($title: String, $type: String) {
-      setWork(input: { TITLE: $title, TYPE: $type }) {
-        TITLE
-        TYPE
-      }
-    }
-  `;
   return {
     props: {
       works: data.getDefaultWork,

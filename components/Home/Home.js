@@ -1,6 +1,7 @@
 import React from "react";
 import Tabs from "./tab";
 import homeStyle from "./Home.module.css";
+import Image from "next/image";
 function Home() {
   return (
     <div>
@@ -17,14 +18,17 @@ function Home() {
         className={`${homeStyle.logo} absolute top-64 w-36 h-36 flex justify-center items-center`}>
         <i className={`bi bi-card-image`}></i>
       </div>
-      <div
-        className={`${homeStyle.text} ml-48 mt-0.5 font-bold flex justify-left items-center`}>
-        패플라이
-        <button className={`${homeStyle.createButton} rounded-md w-40 h-14`}>
+      <div className={`flex justify-between mt-4`}>
+        <div
+          className={`${homeStyle.text} ml-48 mt-0.5 font-bold flex justify-left items-center`}>
+          패플라이
+        </div>
+        <button
+          className={`${homeStyle.createButton} rounded-md w-48 h-16 mr-3`}>
           +채용공고생성
         </button>
       </div>
-      <div className={`${homeStyle.category} mt-16 flex border-b-2`}>
+      <div className={`${homeStyle.category} mt-12 flex border-b-2`}>
         <div className={`flex justify-center items-center w-40 h-10`}>
           채용공고 보기
         </div>
@@ -38,20 +42,30 @@ function Home() {
           채용Q&A
         </div>
       </div>
-      <div className={`${homeStyle.tabs} flex `}>
-        <Tabs name='dynamic' amount='115' />
-        <Tabs name='dynamic' amount='115' />
-        <Tabs name='dynamic' amount='115' />
-        <Tabs name='dynamic' amount='115' />
-        <Tabs name='dynamic' amount='115' />
+      <div className={`${homeStyle.tabs} flex  justify-between`}>
+        <div className={`flex`}>
+          <Tabs name='dynamic' amount='115' />
+          <Tabs name='dynamic' amount='115' />
+          <Tabs name='dynamic' amount='115' />
+          <Tabs name='dynamic' amount='115' />
+          <Tabs name='dynamic' amount='115' />
+        </div>
         <i
-          className={`${homeStyle.gear} flex justify-center items-center bi bi-gear-fill `}></i>
+          className={`${homeStyle.gear} flex justify-center items-center mr-3 bi bi-gear-fill `}></i>
       </div>
       <div
-        className={`${homeStyle.list} flex justify-center items-center w-123 h-42`}>
-        <span className={`${homeStyle.notice}`}>
-          등록된 채용공고가 없습니다. 빠르고 효율적인 패플라이 채용공고를 통해
-          인재 채용을 진행해보세요.
+        className={`${homeStyle.list} flex flex-col justify-center items-center w-123 h-42 pb-2`}>
+        <Image
+          src='/undraw-empty-xct-9-1.png'
+          width={240}
+          height={180}
+          className={`${homeStyle.image}`}
+        />
+        <span className={`${homeStyle.notice} mt-10`}>
+          등록된 채용공고가 없습니다.
+        </span>
+        <span className={`${homeStyle.notice} `}>
+          빠르고 효율적인 패플라이 채용공고를 통해 인재 채용을 진행해보세요.
         </span>
       </div>
     </div>
