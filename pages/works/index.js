@@ -1,5 +1,6 @@
 import Meta from "../../components/Meta";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql, useMutation } from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
 const works = ({ works }) => {
   return (
     <div>
@@ -14,8 +15,10 @@ const works = ({ works }) => {
 };
 
 export const getStaticProps = async () => {
+  const link = createUploadLink({ uri: "http://localhost:3000/api/graphql" });
   const client = new ApolloClient({
-    uri: "http://localhost:3000/api/graphql",
+    // uri: "http://localhost:3000/api/graphql",
+    link,
     cache: new InMemoryCache(),
   });
   const { data } = await client.query({
@@ -28,6 +31,15 @@ export const getStaticProps = async () => {
       }
     `,
   });
+
+  const TEST = gql`
+    mutation Addtest($title: String, $type: String) {
+      setWork(input: { TITLE: $title, TYPE: $type }) {
+        TITLE
+        TYPE
+      }
+    }
+  `;
   return {
     props: {
       works: data.getDefaultWork,

@@ -6,7 +6,9 @@ function Home() {
       <div
         className={`${homeStyle.cover} h-60 flex flex-col justify-center items-center`}>
         <i className={`bi bi-card-image ${homeStyle.icon}  `}></i>
-        <button className={`w-40 h-10 text-white ${homeStyle.button} `}>
+        <button
+          className={`w-40 h-10 text-white ${homeStyle.button} `}
+          onClick={() => console.log("object")}>
           이미지 등록
         </button>
       </div>
@@ -57,7 +59,8 @@ function Home() {
           <span>전체</span>
         </div>
         <i
-          className={`${homeStyle.gear} flex justify-center items-center bi bi-gear-fill `}></i>
+          className={`${homeStyle.gear} flex justify-center items-center bi bi-gear-fill `}
+          onClick={() => console.log("you clicked gear")}></i>
       </div>
       <div
         className={`${homeStyle.list} flex justify-center items-center w-123 h-42`}>

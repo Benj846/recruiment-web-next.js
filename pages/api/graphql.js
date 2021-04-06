@@ -46,6 +46,9 @@ const resolvers = {
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
+  uploads: false,
+  // disable apollo built-in file upload support cuz node -versoin is > 14
+  //see more detail in https://www.apollographql.com/docs/apollo-server/data/file-uploads/#uploads-in-node-14-and-later
 });
 
 const handler = apolloServer.createHandler({ path: "/api/graphql" });
