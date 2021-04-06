@@ -1,4 +1,5 @@
 import React from "react";
+import Tabs from "./tab";
 import homeStyle from "./Home.module.css";
 function Home() {
   return (
@@ -38,29 +39,13 @@ function Home() {
         </div>
       </div>
       <div className={`${homeStyle.tabs} flex `}>
-        <div className={`flex flex-col justify-center items-center w-40 h-24 `}>
-          <span>115</span>
-          <span>전체</span>
-        </div>
-        <div className={`flex flex-col justify-center items-center w-40 h-24 `}>
-          <span>115</span>
-          <span>전체</span>
-        </div>
-        <div className={`flex flex-col justify-center items-center w-40 h-24 `}>
-          <span>115</span>
-          <span>전체</span>
-        </div>
-        <div className={`flex flex-col justify-center items-center w-40 h-24 `}>
-          <span>115</span>
-          <span>전체</span>
-        </div>
-        <div className={`flex flex-col justify-center items-center w-40 h-24 `}>
-          <span>115</span>
-          <span>전체</span>
-        </div>
+        <Tabs name='dynamic' amount='115' />
+        <Tabs name='dynamic' amount='115' />
+        <Tabs name='dynamic' amount='115' />
+        <Tabs name='dynamic' amount='115' />
+        <Tabs name='dynamic' amount='115' />
         <i
-          className={`${homeStyle.gear} flex justify-center items-center bi bi-gear-fill `}
-          onClick={() => console.log("you clicked gear")}></i>
+          className={`${homeStyle.gear} flex justify-center items-center bi bi-gear-fill `}></i>
       </div>
       <div
         className={`${homeStyle.list} flex justify-center items-center w-123 h-42`}>
