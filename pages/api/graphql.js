@@ -25,6 +25,9 @@ const typeDefs = gql`
     getDefaultWork(LV: Int): [Work]
     hello: String!
   }
+  type Mutation {
+    addWork(ID: Int, LV: Int, VAL: String, UPPER_ID: Int, USE_YN: Boolean): Work
+  }
 `;
 
 const getDefaultWork = async ({ LV }) => {
@@ -40,6 +43,19 @@ const resolvers = {
       return "Hello!";
     },
     getDefaultWork: (parent, { LV }, context, info) => getDefaultWork({ LV }),
+  },
+  Mutation: {
+    addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, context) {
+      prisma.work.create({
+        data: {
+          ID: ID,
+          LV: LV,
+          VAL: VAL,
+          UPPER_ID: UPPER_ID,
+          USE_YN: USE_YN,
+        },
+      });
+    },
   },
 };
 

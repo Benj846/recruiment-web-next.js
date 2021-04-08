@@ -20,7 +20,7 @@ function Home() {
       </div>
       <div className={`flex justify-between mt-4`}>
         <div
-          className={`${homeStyle.text} ml-48 mt-0.5 font-bold flex justify-left items-center`}>
+          className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center`}>
           패플라이
         </div>
         <button
@@ -28,7 +28,8 @@ function Home() {
           +채용공고생성
         </button>
       </div>
-      <div className={`${homeStyle.category} mt-12 flex border-b-2`}>
+      <div
+        className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
         <div className={`flex justify-center items-center w-40 h-10`}>
           채용공고 보기
         </div>
@@ -42,7 +43,8 @@ function Home() {
           채용Q&A
         </div>
       </div>
-      <div className={`${homeStyle.tabs} flex  justify-between`}>
+      <div
+        className={`${homeStyle.tabs} flex  justify-between border-b border-gray-300`}>
         <div className={`flex`}>
           <Tabs name='dynamic' amount='115' />
           <Tabs name='dynamic' amount='115' />
