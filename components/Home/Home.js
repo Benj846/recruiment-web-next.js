@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Tabs from "./tab";
 import homeStyle from "./Home.module.css";
 import Image from "next/image";
+import classNames from "classnames";
 function Home() {
+  const [click, setClick] = useState(false);
+
+  const conditionalClasses = classNames(
+    "flex",
+    "justify-center",
+    "items-center",
+    "w-40 ",
+    "h-10",
+    {
+      isActive: click === true,
+    }
+  );
   return (
     <div>
       <div
-        className={`${homeStyle.cover} h-60 flex flex-col justify-center items-center`}>
+        className={` ${homeStyle.cover} h-60 flex flex-col justify-center items-center`}
+        onClick={() => setClick(!click)}>
         <i className={`bi bi-card-image ${homeStyle.icon}  `}></i>
         <button
           className={`w-40 h-10 text-white ${homeStyle.button} `}
@@ -20,7 +34,7 @@ function Home() {
       </div>
       <div className={`flex justify-between mt-4`}>
         <div
-          className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center`}>
+          className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center `}>
           패플라이
         </div>
         <button
@@ -30,7 +44,11 @@ function Home() {
       </div>
       <div
         className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
-        <div className={`flex justify-center items-center w-40 h-10`}>
+        <div
+          className={` ${
+            click ? "" : homeStyle.isActive
+          } flex justify-center items-center  w-40 h-10`}
+          onClick={() => setClick(!click)}>
           채용공고 보기
         </div>
         <div className={`flex justify-center items-center  w-40 h-10`}>

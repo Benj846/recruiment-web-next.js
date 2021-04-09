@@ -37,3 +37,7 @@
   font-size: 2rem;
   color: #cccccc;
 }
+.isActive {
+  color: #009999;
+  border-bottom-width: 2px;
+}
