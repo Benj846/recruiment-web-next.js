@@ -1,10 +1,10 @@
-# Next.js Crash Course Project
+# Next.js Project
 
-Project from my Next.js crash course on YouTube
 
 ### Run the development server:
 
 ```bash
+npm install
 npm run dev
 ```
 
@@ -19,8 +19,3 @@ npm run build
 ```bash
 npm start
 ```
-
-### API Routes:
-
-GET /api/articles
-GET /api/articles/:id
