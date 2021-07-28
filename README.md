@@ -1,5 +1,6 @@
 # Next.js Project
-
+currently missing db access
+will udpate in near future
 
 ### Run the development server:
 
