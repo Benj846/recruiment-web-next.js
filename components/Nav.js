@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import navStyles from '../styles/Nav.module.css';
+import Link from "next/link";
+import Image from "next/image";
+import navStyles from "../styles/Nav.module.css";
 
 const Nav = () => {
   return (
@@ -8,32 +8,32 @@ const Nav = () => {
       <div className={`container flex justify-between items-center h-16`}>
         <ul className={`flex items-center`}>
           <li className={`mr-20`}>
-            <Link href="/">
+            <Link href='/'>
               <a>
-                <Image src="/fapplylogo.svg" width={100} height={20} />
+                <Image src='/fapplylogo.svg' width={100} height={20} />
               </a>
             </Link>
           </li>
           <li>
             <ul className={`lg:flex hidden gap-9`}>
               <li>
-                <Link href="/">
-                  <a className={navStyles.navSpan}>채용공고</a>
+                <Link href='/custom'>
+                  <a className={navStyles.navSpan}>Custom</a>
                 </Link>
               </li>
               <li>
-                <Link href="/career">
-                  <a className={navStyles.navSpan}>커리어</a>
+                <Link href='/phonecase'>
+                  <a className={navStyles.navSpan}>Phone case</a>
                 </Link>
               </li>
               <li>
-                <Link href="/works">
-                  <a className={navStyles.navSpan}>채용달력</a>
+                <Link href='/review'>
+                  <a className={navStyles.navSpan}>Review</a>
                 </Link>
               </li>
               <li>
-                <Link href="/resume">
-                  <a className={navStyles.navSpan}>이력서</a>
+                <Link href='/help'>
+                  <a className={navStyles.navSpan}>Help</a>
                 </Link>
               </li>
             </ul>
@@ -42,12 +42,12 @@ const Nav = () => {
         {/* Utility links */}
         <ul className={`flex items-center`}>
           <li>
-            <Link href="/signin">
+            <Link href='/signin'>
               <a className={navStyles.navSpan}>로그인/회원가입</a>
             </Link>
           </li>
           <li className={`hidden`}>
-            <Link href="/mypage">
+            <Link href='/mypage'>
               <a className={navStyles.navSpan}>마이페이지</a>
             </Link>
           </li>

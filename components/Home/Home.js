@@ -6,21 +6,15 @@ import classNames from "classnames";
 function Home() {
   const [click, setClick] = useState(false);
 
-  const conditionalClasses = classNames(
-    "flex",
-    "justify-center",
-    "items-center",
-    "w-40 ",
-    "h-10",
-    {
-      isActive: click === true,
-    }
-  );
+  const conditionalClasses = classNames("flex", "justify-center", "items-center", "w-40 ", "h-10", {
+    isActive: click === true,
+  });
   return (
     <div>
       <div
         className={` ${homeStyle.cover} h-60 flex flex-col justify-center items-center`}
-        onClick={() => setClick(!click)}>
+        // onClick={() => setClick(!click)}
+        >
         <i className={`bi bi-card-image ${homeStyle.icon}  `}></i>
         <button
           className={`w-40 h-10 text-white ${homeStyle.button} `}
@@ -33,17 +27,14 @@ function Home() {
         <i className={`bi bi-card-image`}></i>
       </div>
       <div className={`flex justify-between mt-4`}>
-        <div
-          className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center `}>
+        <div className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center `}>
           패플라이
         </div>
-        <button
-          className={`${homeStyle.createButton} rounded-md w-48 h-16 mr-3`}>
+        <button className={`${homeStyle.createButton} rounded-md w-48 h-16 mr-3`}>
           +채용공고생성
         </button>
       </div>
-      <div
-        className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
+      <div className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
         <div
           className={` ${
             click ? "" : homeStyle.isActive
@@ -51,18 +42,11 @@ function Home() {
           onClick={() => setClick(!click)}>
           채용공고 보기
         </div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>
-          채용 전형
-        </div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>
-          전형 결과 발표
-        </div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>
-          채용Q&A
-        </div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>채용 전형</div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>전형 결과 발표</div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>채용Q&A</div>
       </div>
-      <div
-        className={`${homeStyle.tabs} flex  justify-between border-b border-gray-300`}>
+      <div className={`${homeStyle.tabs} flex  justify-between border-b border-gray-300`}>
         <div className={`flex`}>
           <Tabs name='dynamic' amount='115' />
           <Tabs name='dynamic' amount='115' />
@@ -81,9 +65,7 @@ function Home() {
           height={180}
           className={`${homeStyle.image}`}
         />
-        <span className={`${homeStyle.notice} mt-10`}>
-          등록된 채용공고가 없습니다.
-        </span>
+        <span className={`${homeStyle.notice} mt-10`}>등록된 채용공고가 없습니다.</span>
         <span className={`${homeStyle.notice} `}>
           빠르고 효율적인 패플라이 채용공고를 통해 인재 채용을 진행해보세요.
         </span>
