@@ -1,5 +1,9 @@
 module.exports = {
-  purge: ["./src/**/*.js", "./src/**/*.html"],
+  mode:'jit',
+  // purge: [".src/**/*.js", "./src/**/*.html"],
+  purge: [
+    './*/**/*.{js,jsx,ts,tsx,vue}',
+  ],
   darkMode: false,
   theme: {
     screens: {
