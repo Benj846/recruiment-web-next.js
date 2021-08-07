@@ -28,10 +28,10 @@ function Home() {
       </div>
       <div className={`flex justify-between mt-4`}>
         <div className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center `}>
-          패플라이
+          Home page
         </div>
-        <button className={`${homeStyle.createButton} rounded-md w-48 h-16 mr-3`}>
-          +채용공고생성
+        <button className={`${homeStyle.createButton} rounded-md w-48 h-16`}>
+          +Create
         </button>
       </div>
       <div className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
@@ -40,11 +40,11 @@ function Home() {
             click ? "" : homeStyle.isActive
           } flex justify-center items-center  w-40 h-10`}
           onClick={() => setClick(!click)}>
-          채용공고 보기
+          Read
         </div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>채용 전형</div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>전형 결과 발표</div>
-        <div className={`flex justify-center items-center  w-40 h-10`}>채용Q&A</div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>Tab2</div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>Tab3</div>
+        <div className={`flex justify-center items-center  w-40 h-10`}>Tab4</div>
       </div>
       <div className={`${homeStyle.tabs} flex  justify-between border-b border-gray-300`}>
         <div className={`flex`}>
@@ -65,10 +65,10 @@ function Home() {
           height={180}
           className={`${homeStyle.image}`}
         />
-        <span className={`${homeStyle.notice} mt-10`}>등록된 채용공고가 없습니다.</span>
+        {/* <span className={`${homeStyle.notice} mt-10`}>등록된 채용공고가 없습니다.</span>
         <span className={`${homeStyle.notice} `}>
           빠르고 효율적인 패플라이 채용공고를 통해 인재 채용을 진행해보세요.
-        </span>
+        </span> */}
       </div>
     </div>
   );
