@@ -5,11 +5,11 @@ import { ApolloProvider } from "@apollo/client";
 import client from "../pages/works/index";
 function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={client}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    // <ApolloProvider client={client}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    /* </ApolloProvider> */
   );
 }
 

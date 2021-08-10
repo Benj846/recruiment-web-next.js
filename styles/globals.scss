@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 //global styles
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 html,
 body {
   padding: 0;
@@ -13,6 +13,20 @@ body {
 }
 body::-webkit-scrollbar {
   width: 0;
+}
+/* noto-sans-kr-regular - korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../public/noto-sans-kr-v13-korean-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../public/noto-sans-kr-v13-korean-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../public/noto-sans-kr-v13-korean-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../public/noto-sans-kr-v13-korean-regular.woff") format("woff"),
+    // /* Modern Browsers */ url("../public/noto-sans-kr-v13-korean-regular.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../public/noto-sans-kr-v13-korean-regular.svg#NotoSansKR")
+      format("svg"); /* Legacy iOS */
 }
 ol,
 ul,

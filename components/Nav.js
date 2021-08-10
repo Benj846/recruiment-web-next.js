@@ -10,7 +10,7 @@ const Nav = () => {
           <li className={`mr-20`}>
             <Link href='/'>
               <a>
-                <Image src='/fapplylogo.svg' width={100} height={20} />
+                <Image src='/fapplylogo.svg' alt='Fapply' width={100} height={20} />
               </a>
             </Link>
           </li>

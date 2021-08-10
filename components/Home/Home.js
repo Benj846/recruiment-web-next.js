@@ -14,11 +14,12 @@ function Home() {
       <div
         className={` ${homeStyle.cover} h-60 flex flex-col justify-center items-center`}
         // onClick={() => setClick(!click)}
-        >
+      >
         <i className={`bi bi-card-image ${homeStyle.icon}  `}></i>
         <button
           className={`w-40 h-10 text-white ${homeStyle.button} `}
-          onClick={() => console.log("object")}>
+          // onClick={() => console.log("object")}
+        >
           이미지 등록
         </button>
       </div>
@@ -30,9 +31,7 @@ function Home() {
         <div className={`${homeStyle.text} ml-40 mt-0.5 font-bold flex justify-left items-center `}>
           Home page
         </div>
-        <button className={`${homeStyle.createButton} rounded-md w-48 h-16`}>
-          +Create
-        </button>
+        <button className={`${homeStyle.createButton} rounded-md w-48 h-16`}>+Create</button>
       </div>
       <div className={`${homeStyle.category} mt-12 flex border-b border-gray-700`}>
         <div
@@ -60,7 +59,7 @@ function Home() {
       <div
         className={`${homeStyle.list} flex flex-col justify-center items-center w-123 h-42 pb-2`}>
         <Image
-          src='/undraw-empty-xct-9-1.png'
+          src='/undraw-empty-xct-9-1.webp'
           width={240}
           height={180}
           className={`${homeStyle.image}`}

@@ -10,7 +10,8 @@ const Meta = ({ title, keywords, description }) => {
       <link href='/favicon.ico' />
       <title>{title}</title>
       <link
-        href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'
+        // href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'
+        // improved First Content Print by hosting google web font locally
         rel='stylesheet'></link>
     </Head>
   );
