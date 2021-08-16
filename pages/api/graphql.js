@@ -21,8 +21,15 @@ const typeDefs = gql`
     UPPER_ID: Int!
     USE_YN: Boolean!
   }
+  type User {
+    ID: Int!
+    Name: String!
+    Email: String!
+    Password: String!
+  }
   type Query {
     getDefaultWork(LV: Int): [Work]
+    getUserInfo(ID: Int): [User]
     hello: String!
   }
   type Mutation {
@@ -30,11 +37,23 @@ const typeDefs = gql`
   }
 `;
 
-const getDefaultWork = async ({ LV }) => {
-  //const [rows] = await pool.query("select * from TB_CMN_WORK");
+const getUserInfo = async ({ ID }) => {
+  const [rows] = await pool.query("select * from User");
+};
+// const getDefaultWork = async ({ LV }) => {
+//   const [rows] = await pool.query("select * from User ");
+//   // const [rows] = await pool.query("select * from TB_CMN_WORK");
+//   //const [rows] = await prisma.work.findMany();
+//   // const rows = await prisma.work.findMany();
+//   const filteredWorks = rows.filter((args) => args.LV === LV);
+//   return filteredWorks;
+// };
+const getDefaultWork = async ({ ID }) => {
+  const [rows] = await pool.query("select * from User ");
+  // const [rows] = await pool.query("select * from TB_CMN_WORK");
   //const [rows] = await prisma.work.findMany();
-  const rows = await prisma.work.findMany();
-  const filteredWorks = rows.filter((args) => args.LV === LV);
+  // const rows = await prisma.work.findMany();
+  const filteredWorks = rows.filter((args) => args.ID === ID);
   return filteredWorks;
 };
 const resolvers = {
@@ -43,6 +62,7 @@ const resolvers = {
       return "Hello!";
     },
     getDefaultWork: (parent, { LV }, context, info) => getDefaultWork({ LV }),
+    getUserInfo: () => getUserInfo({ ID }),
   },
   Mutation: {
     addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, context) {

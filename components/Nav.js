@@ -36,6 +36,11 @@ const Nav = () => {
                   <a className={navStyles.navSpan}>Help</a>
                 </Link>
               </li>
+              <li>
+                <Link href='/works'>
+                  <a className={navStyles.navSpan}>works</a>
+                </Link>
+              </li>
             </ul>
           </li>
         </ul>

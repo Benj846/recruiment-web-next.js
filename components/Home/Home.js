@@ -59,7 +59,7 @@ function Home() {
       <div
         className={`${homeStyle.list} flex flex-col justify-center items-center w-123 h-42 pb-2`}>
         <Image
-          src='/undraw-empty-xct-9-1.webp'
+          src='/undraw-empty-xct-9-1_1.webp'
           width={240}
           height={180}
           className={`${homeStyle.image}`}

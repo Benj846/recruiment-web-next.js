@@ -18,10 +18,10 @@ const works = ({ works }) => {
       <Meta title='works' />
       <div>
         {works.map((a) => (
-          <div key={a.ID}>{a.VAL}</div>
+          <div key={a.ID}>{/* {a.VAL} */}</div>
         ))}
       </div>
-      <form
+      {/* <form
         onSubmit={(e) => {
           e.preventDefault();
           addTodo({ variables: { type: input.value } });
@@ -33,7 +33,7 @@ const works = ({ works }) => {
           }}
         />
         <button type='submit'>Add todo</button>
-      </form>
+      </form> */}
     </div>
   );
 };
@@ -43,13 +43,33 @@ export const client = new ApolloClient({
   link: createUploadLink({ uri: "http://localhost:3000/api/graphql" }),
   cache: new InMemoryCache(),
 });
+// export const getStaticProps = async () => {
+//   const { data } = await client.query({
+//     query: gql`
+//       {
+//         getDefaultWork(LV: 1) {
+//           ID
+//           VAL
+//         }
+//       }
+//     `,
+//   });
+
+//   return {
+//     props: {
+//       works: data.getDefaultWork,
+//     },
+//   };
+// };
 export const getStaticProps = async () => {
   const { data } = await client.query({
     query: gql`
       {
-        getDefaultWork(LV: 1) {
+        getUserInfo {
           ID
-          VAL
+          Name
+          Email
+          Password
         }
       }
     `,
@@ -57,7 +77,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      works: data.getDefaultWork,
+      works: data.getUserInfo,
     },
   };
 };
