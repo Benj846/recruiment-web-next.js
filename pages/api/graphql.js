@@ -1,7 +1,6 @@
 import { ApolloServer, gql } from "apollo-server-micro";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../prisma";
 const mysql = require("mysql2/promise");
-const prisma = new PrismaClient();
 
 require("dotenv").config();
 const pool = mysql.createPool({
@@ -28,8 +27,8 @@ const typeDefs = gql`
     Password: String!
   }
   type Query {
-    getDefaultWork(LV: Int): [Work]
-    getUserInfo(ID: Int): [User]
+    getDefaultWork(ID: Int): [User]
+    getUserInfo: [User]
     hello: String!
   }
   type Mutation {
@@ -37,32 +36,25 @@ const typeDefs = gql`
   }
 `;
 
-const getUserInfo = async ({ ID }) => {
-  const [rows] = await pool.query("select * from User");
+const getUserInfo = async () => {
+  const rows = await prisma.userinfo.findMany();
+  return rows;
 };
-// const getDefaultWork = async ({ LV }) => {
-//   const [rows] = await pool.query("select * from User ");
+// const getDefaultWork = async ({ ID }) => {
+//   // const [rows] = await pool.query("select * from User ");
 //   // const [rows] = await pool.query("select * from TB_CMN_WORK");
-//   //const [rows] = await prisma.work.findMany();
+//   const [rows] = await prisma.userinfo.findMany();
 //   // const rows = await prisma.work.findMany();
-//   const filteredWorks = rows.filter((args) => args.LV === LV);
+//   const filteredWorks = rows.filter((args) => args.ID === ID);
 //   return filteredWorks;
 // };
-const getDefaultWork = async ({ ID }) => {
-  const [rows] = await pool.query("select * from User ");
-  // const [rows] = await pool.query("select * from TB_CMN_WORK");
-  //const [rows] = await prisma.work.findMany();
-  // const rows = await prisma.work.findMany();
-  const filteredWorks = rows.filter((args) => args.ID === ID);
-  return filteredWorks;
-};
 const resolvers = {
   Query: {
     hello: (_parent, _args, _context) => {
       return "Hello!";
     },
-    getDefaultWork: (parent, { LV }, context, info) => getDefaultWork({ LV }),
-    getUserInfo: () => getUserInfo({ ID }),
+    getDefaultWork: (_, { ID }, __) => getDefaultWork({ ID }),
+    getUserInfo: (_, __) => getUserInfo(),
   },
   Mutation: {
     addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, context) {
