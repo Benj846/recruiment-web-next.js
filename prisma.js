@@ -12,3 +12,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default prisma;
+
+// Prevent Next.js create too many Prisma instatance
+// whenever hot relaodd module is triggerd

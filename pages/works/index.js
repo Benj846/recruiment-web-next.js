@@ -1,6 +1,6 @@
 import Meta from "../../components/Meta";
-import { ApolloClient, InMemoryCache, gql, useMutation, useQuery } from "@apollo/client";
-import { createUploadLink } from "apollo-upload-client";
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, gql } from "@apollo/client";
+// import { createUploadLink } from "apollo-upload-client";
 // import client from "../_app";
 
 const GET_USER = gql`
@@ -35,41 +35,18 @@ const Works = ({ user }) => {
   );
 };
 
-// export const getStaticProps = async () => {
-//   const { data } = await client.query({
-//     query: gql`
-//       {
-//         getDefaultWork(LV: 1) {
-//           ID
-//           VAL
-//         }
-//       }
-//     `,
-//   });
-
-//   return {
-//     props: {
-//       works: data.getDefaultWork,
-//     },
-//   };
-// };
-export const client = new ApolloClient({
+const link = createHttpLink({
   uri: "http://localhost:3000/api/graphql",
-  // link: createUploadLink({ uri: "http://localhost:3000/api/graphql" }),
-  cache: new InMemoryCache(),
+  credentials: "same-origin",
 });
 
+export const client = new ApolloClient({
+  link,
+  cache: new InMemoryCache(),
+});
 export async function getStaticProps() {
   const { data } = await client.query({
-    query: gql`
-      query {
-        getUserInfo {
-          ID
-          Name
-          Email
-        }
-      }
-    `,
+    query: GET_USER,
   });
 
   return {

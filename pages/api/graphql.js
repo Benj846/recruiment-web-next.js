@@ -12,6 +12,8 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+// Schema
 const typeDefs = gql`
   type Work {
     ID(id: ID): Int!
@@ -33,9 +35,11 @@ const typeDefs = gql`
   }
   type Mutation {
     addWork(ID: Int, LV: Int, VAL: String, UPPER_ID: Int, USE_YN: Boolean): Work
+    signUp(name: String!, email: String!, password: String!): User
   }
 `;
 
+// Resolvers
 const getUserInfo = async () => {
   const rows = await prisma.userinfo.findMany();
   return rows;
@@ -57,7 +61,7 @@ const resolvers = {
     getUserInfo: (_, __) => getUserInfo(),
   },
   Mutation: {
-    addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, context) {
+    addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, __) {
       prisma.work.create({
         data: {
           ID: ID,
@@ -66,6 +70,12 @@ const resolvers = {
           UPPER_ID: UPPER_ID,
           USE_YN: USE_YN,
         },
+      });
+    },
+    signUp(_, args, context) {
+      const password = args.password;
+      const user = prisma.create({
+        data: { ...args, password },
       });
     },
   },
