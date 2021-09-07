@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export default function Review() {
-  return <div>Review page</div>;
+  return <div className="min-w-min min-h-60">Review page</div>;
 }

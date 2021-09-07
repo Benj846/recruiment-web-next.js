@@ -32,11 +32,10 @@ generator client {
 //   @@map("TB_CMN_GROUP")
 // }
 
-model Userinfo {
-  ID       Int    @id @default(autoincrement())
+model user {
+  Id       Int    @id @default(autoincrement())
   Name     String
-  Email    String
+  Email    String @unique
   Password String
 
-  @@map("User")
 }

@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export default function Phonecase() {
-  return <div>phone case page</div>;
+  return <div className="min-w-min min-h-60">phone case page</div>;
 }

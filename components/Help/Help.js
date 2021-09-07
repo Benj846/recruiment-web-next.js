@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Help = () => {
-  return <div>Help page</div>;
+  return <div className="min-w-min min-h-60">Help page</div>;
 };
 
 export default Help;

@@ -15,7 +15,10 @@ module.exports = {
       padding: {
         DEFAULT: "16px",
         lg: "10px",
-      },
+    },
+  },
+    minHeight:{
+       '60' : '60vh',
     },
     extend: {
       spacing: {
