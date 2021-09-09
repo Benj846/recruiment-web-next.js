@@ -4,7 +4,7 @@ import navStyles from '../styles/Nav.module.css';
 
 const Nav = () => {
   return (
-    <nav className={navStyles.nav}>
+    <nav className={`navStyles.nav fixed w-screen bg-white`}>
       <div className={`container flex justify-between items-center h-16`}>
         <ul className={`${navStyles.liWrapper} flex items-center`}>
           <li className={``}>

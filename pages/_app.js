@@ -1,8 +1,8 @@
-import Layout from "../components/Layout";
-import "../styles/globals.scss";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import client from "./works/index";
+import Layout from '../components/Layout';
+import '../styles/globals.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { ApolloProvider } from '@apollo/client';
+import client from '../apollo-client';
 
 function MyApp({ Component, pageProps }) {
   return (

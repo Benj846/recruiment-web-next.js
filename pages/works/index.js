@@ -41,15 +41,6 @@ const Works = ({ user }) => {
   );
 };
 
-const link = createHttpLink({
-  uri: 'http://localhost:3000/api/graphql',
-  credentials: 'same-origin',
-});
-
-export const client = new ApolloClient({
-  link,
-  cache: new InMemoryCache(),
-});
 export async function getStaticProps() {
   const { data } = await client.query({
     query: GET_USER,

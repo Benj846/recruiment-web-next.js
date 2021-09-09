@@ -17,21 +17,19 @@ const SignUp = () => {
   const SIGNUP_MUTATION = gql`
     mutation SignUpMutation(
       $Email: String!
-      $Eassword: String!
+      $Password: String!
       $Name: String!
     ) {
-      signup(Email: $Email, Password: $Password, Name: $Name) {
+      signUp(Email: $Email, Password: $Password, Name: $Name) {
         token
       }
     }
   `;
-  const [signup] = useMutation(SIGNUP_MUTATION, {
-    variables: {
-      Name: values.name,
-      Email: values.email,
-      Password: values.password,
-    },
-  });
+  const [signupMutation, { error, loading, data }] =
+    useMutation(SIGNUP_MUTATION);
+
+  loading ? <div> loading ...</div> : null;
+  error ? <div>{error.message}</div> : null;
   return (
     <div className={`min-w-screen`}>
       <Formik
@@ -41,52 +39,50 @@ const SignUp = () => {
           password: '',
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
+        onSubmit={(data, { setSubmitting }) => {
+          console.log(data);
           setSubmitting(false);
-          signup;
+          signupMutation({
+            variables: {
+              Email: data.email,
+              Password: data.password,
+              Name: data.name,
+            },
+          });
+          console.log(error);
         }}
         className={`w-80`}>
-        {({ errors, touched, handleSubmit }) => (
-          <Form
-            className="flex flex-col justify-center items-center"
-            onSubmit={handleSubmit}>
-            {/* <Field
-              className="block rounded border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-              name="name"
-              placeholder="Name"
-              // onChange={(e) => setLoginInfo({ ...LoginInfo, name: e.target.value })}
-            />
-            <Field
-              className="block my-2 rounded border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-              type="email"
-              name="email"
-              placeholder="Email"
-              // onChange={(e) => setLoginInfo({ ...LoginInfo, email: e.target.value })}
-            />
-            <Field
-              className="block rounded border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-              type="password"
-              name="password"
-              placeholder="Password"
-              // onChange={(e) => setLoginInfo({ ...LoginInfo, password: e.target.value })}
-            /> */}
-            <FieldComponent name="name" placeholder="Name" />
-            <FieldComponent type="email" name="email" placeholder="Email" />
-            <FieldComponent
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-            {errors.name && touched.name ? (
-              <div className=" my-1 text-red-600">* {errors.name}</div>
-            ) : null}
-            {errors.email && touched.email ? (
-              <div className="my-1 text-red-600">* {errors.email}</div>
-            ) : null}
-            {errors.password && touched.password ? (
-              <div className="my-1 text-red-600">* {errors.password}</div>
-            ) : null}
+        {({ values, errors, touched, handleSubmit }) => (
+          <Form className="flex flex-col justify-center items-center">
+            <div className="flex">
+              {/* testing */}
+              {/* {values.name} */}
+
+              <FieldComponent name="name" placeholder="Name" />
+              {errors.name && touched.name ? (
+                <div className=" static  my-1 text-red-600">
+                  * {errors.name}
+                </div>
+              ) : null}
+            </div>
+            <div className="flex">
+              <FieldComponent type="email" name="email" placeholder="Email" />
+              {errors.email && touched.email ? (
+                <div className="absolute left-50 my-1 text-red-600">
+                  * {errors.email}
+                </div>
+              ) : null}
+            </div>
+            <div className="flex">
+              <FieldComponent
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+              {errors.password && touched.password ? (
+                <div className=" my-1 text-red-600">* {errors.password}</div>
+              ) : null}
+            </div>
             <button
               type="submit"
               className="rounded-lg bg-green-500 hover:bg-green-700 m-2 w-20 h-8 text-white">
