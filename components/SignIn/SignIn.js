@@ -17,7 +17,7 @@ const SignIn = () => {
   const [IsSignUp, setIsSignUp] = useState(isNotClicked);
   const LOGIN_MUTATION = gql`
     mutation LoginMutation($Email: String!, $Password: String!) {
-      logIn(Email: $Email, Password: $Password, Name: $Name) {
+      logIn(Email: $Email, Password: $Password) {
         token
         user {
           Name
@@ -25,7 +25,14 @@ const SignIn = () => {
       }
     }
   `;
-  const [loginMutation, { error, loading, data }] = useMutation(LOGIN_MUTATION);
+  const [loginMutation, { error, loading, data }] = useMutation(
+    LOGIN_MUTATION,
+    {
+      onCompleted: ({ logIn }) => {
+        sessionStorage.setItem('asdf', logIn.token);
+      },
+    }
+  );
   return (
     <div className="w-max h-96 min-h-screen">
       <div className="flex justify-center ">
