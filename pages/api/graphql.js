@@ -1,4 +1,3 @@
-import { setLogVerbosity } from '@apollo/client';
 import { ApolloServer, gql } from 'apollo-server-micro';
 import prisma from '../../prisma';
 const jwt = require('jsonwebtoken');
@@ -26,7 +25,7 @@ const typeDefs = gql`
     USE_YN: Boolean!
   }
   type User {
-    ID: Int!
+    Id: Int!
     Name: String!
     Email: String!
     Password: String!
@@ -43,20 +42,13 @@ const typeDefs = gql`
   type Mutation {
     addWork(ID: Int, LV: Int, VAL: String, UPPER_ID: Int, USE_YN: Boolean): Work
     signUp(Name: String!, Email: String!, Password: String!): AuthPayload
+    logIn(Email: String!, Password: String!): AuthPayload
   }
 `;
 
-// Resolvers
+// signUp Resolvers
 const signUp = async (_, args, { prisma }) => {
   const encriptedPW = await bcrypt.hash(args.Password, 10);
-  // const user1 = await prisma.
-  // const userExsits = await prisma.user.findUnique({
-  //   where: {
-  //     Email: args.Email,
-  //     // Name: 'jubenri@gmail.com',
-  //   },
-  // });
-  // console.log(userExsits);
   try {
     const user = await prisma.user.create({
       data: {
@@ -64,18 +56,40 @@ const signUp = async (_, args, { prisma }) => {
         Password: encriptedPW,
       },
     });
-    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+    const token = jwt.sign({ userId: user.Id }, process.env.APP_SECRET);
     return {
       token,
       user,
     };
   } catch (e) {
-    console.log(e.meta.target);
+    // console.log(e.meta.target);
+  }
+};
+
+// Login resolver
+const logIn = async (_, args, { prisma }) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { Email: args.Email },
+    });
+    if (!user) {
+      throw new Error('No such user found');
+    }
+    const valid = await bcrypt.compare(args.Password, user.Password);
+    if (!valid) {
+      throw new Error('Invalid password');
+    }
+    const token = jwt.sign({ userId: user.Id }, process.env.APP_SECRET);
+    console.log({ user, token });
+    return { user, token };
+  } catch (e) {
+    // return e.massage;
+    console.log('error with login');
   }
 };
 
 const getUserInfo = async () => {
-  const rows = await prisma.userinfo.findMany();
+  const rows = await prisma.user.findMany();
   return rows;
 };
 // const getDefaultWork = async ({ ID }) => {
@@ -92,7 +106,7 @@ const resolvers = {
       return 'Hello!';
     },
     getDefaultWork: (_, { ID }, __) => getDefaultWork({ ID }),
-    getUserInfo: (_, __) => getUserInfo(),
+    getUserInfo,
   },
   Mutation: {
     addWork(_, { ID, LV, VAL, UPPER_ID, USE_YN }, __) {
@@ -107,6 +121,7 @@ const resolvers = {
       });
     },
     signUp,
+    logIn,
   },
 };
 

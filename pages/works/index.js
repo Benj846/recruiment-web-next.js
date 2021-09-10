@@ -1,18 +1,11 @@
 import Meta from '../../components/Meta';
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-  gql,
-} from '@apollo/client';
-// import { createUploadLink } from "apollo-upload-client";
-// import client from "../_app";
+import { gql } from '@apollo/client';
+import client from '../../apollo-client';
 
 const GET_USER = gql`
   query {
     getUserInfo {
-      ID
+      Id
       Name
     }
   }
@@ -30,11 +23,15 @@ const Works = ({ user }) => {
   // const [addTodo, { data }] = useMutation(ADD_TODO);
 
   return (
-    <div>
-      <Meta title="works" />
+    <div className="h-80">
+      <Meta
+        title="Display Users"
+        keywords="getallusers"
+        description="display all the users"
+      />
       <div className="min-w-min min-h-60">
         {user.map((a) => (
-          <div key={a.ID}>{a.Name}</div>
+          <div key={a.Id}>{a.Name}</div>
         ))}
       </div>
     </div>

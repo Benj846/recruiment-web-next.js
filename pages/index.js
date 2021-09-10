@@ -1,8 +1,7 @@
-import { server } from "../config";
-import HomePage from "../components/Home/Home";
+import HomePage from '../components/Home/Home';
 export default function Home() {
   return (
-    <div className={`container`}>
+    <div className={`flex justify-center`}>
       <HomePage />
     </div>
   );

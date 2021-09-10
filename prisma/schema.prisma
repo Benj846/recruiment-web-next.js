@@ -20,18 +20,6 @@ generator client {
 //   @@map("TB_CMN_WORK")
 // }
 
-// model Auth {
-//   IDX    Int    @id @default(autoincrement())
-//   UID    String
-//   RID    Int
-//   CNAME  String
-//   CLEVEL String
-//   CAUTH  String
-//   CPOINT String
-
-//   @@map("TB_CMN_GROUP")
-// }
-
 model user {
   Id       Int    @id @default(autoincrement())
   Name     String
