@@ -1,10 +1,10 @@
-import { ApolloServer, gql } from 'apollo-server-micro';
-import prisma from '../../prisma';
-const jwt = require('jsonwebtoken');
-const mysql = require('mysql2/promise');
-const bcrypt = require('bcryptjs');
+import { ApolloServer, gql } from "apollo-server-micro";
+import prisma from "../prisma";
+const jwt = require("jsonwebtoken");
+const mysql = require("mysql2/promise");
+const bcrypt = require("bcryptjs");
 
-require('dotenv').config();
+require("dotenv").config();
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -73,18 +73,18 @@ const logIn = async (_, args, { prisma }) => {
       where: { Email: args.Email },
     });
     if (!user) {
-      throw new Error('No such user found');
+      throw new Error("No such user found");
     }
     const valid = await bcrypt.compare(args.Password, user.Password);
     if (!valid) {
-      throw new Error('Invalid password');
+      throw new Error("Invalid password");
     }
     const token = jwt.sign({ userId: user.Id }, process.env.APP_SECRET);
     console.log({ user, token });
     return { user, token };
   } catch (e) {
     // return e.massage;
-    console.log('error with login');
+    console.log("error with login");
   }
 };
 
@@ -103,7 +103,7 @@ const getUserInfo = async () => {
 const resolvers = {
   Query: {
     hello: (_parent, _args, _context) => {
-      return 'Hello!';
+      return "Hello!";
     },
     getDefaultWork: (_, { ID }, __) => getDefaultWork({ ID }),
     getUserInfo,
@@ -139,7 +139,7 @@ const apolloServer = new ApolloServer({
   //see more detail in https://www.apollographql.com/docs/apollo-server/data/file-uploads/#uploads-in-node-14-and-later
 });
 
-const handler = apolloServer.createHandler({ path: '/api/graphql' });
+const handler = apolloServer.createHandler({ path: "/api/graphql" });
 
 export const config = {
   api: {
