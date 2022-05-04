@@ -10,20 +10,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// model Work {
-//   ID       Int     @id @default(autoincrement())
-//   LV       Int
-//   VAL      String
-//   UPPER_ID Int
-//   USE_YN   Boolean @default(false)
+model Work {
+  ID       Int     @id @default(autoincrement())
+  LV       Int
+  VAL      String
+  UPPER_ID Int
+  USE_YN   Boolean @default(false)
 
-//   @@map("TB_CMN_WORK")
-// }
+}
 
 model user {
   Id       Int    @id @default(autoincrement())
   Name     String
   Email    String @unique
   Password String
-
 }
