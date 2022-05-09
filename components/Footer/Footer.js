@@ -14,14 +14,15 @@ function Footer(props) {
       </div>
       <div className={`${styles.footerCopyWrap}`}>
         <div
-          className={`${styles.footerInner} container py-12 flex lg:flex-row items-center flex-col `}>
-          <Image
+          className={`${styles.footerInner} container py-12 flex lg:flex-row items-center flex-col `}
+        >
+          {/* <Image
             src='/Logo.svg'
             alt='Fapply'
             width={100}
             height={20}
             className={styles.footerLogo}
-          />
+          /> */}
           <div className={`${styles.footerTxtWrap} lg:-mt-2 lg:ml-8 mt-8`}>
             <span className={styles.corpName}>words</span>
             <p className={styles.txt}>words</p>
